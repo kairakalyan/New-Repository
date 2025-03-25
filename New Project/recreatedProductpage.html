@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>E-commerce Product Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
+        <a class="navbar-brand text-success" href="#">ECOMMERCE</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="border rounded p-3">
+                    <img id="mainImage" src="D:/watch.jpg" class="img-fluid rounded">
+                    <div class="d-flex justify-content-between mt-3">
+                        <div class="image-box border rounded p-1" style="width: 90px; height: 90px; cursor: pointer;" onclick="changeImage('D:/watch.jpg')">
+                            <img src="D:/watch.jpg">
+                        </div>
+                        <div class="image-box border rounded p-1" style="width: 90px; height: 90px; cursor: pointer;" onclick="changeImage('D:/watch2.jpg')">
+                            <img src="D:/watch2.jpg">
+                        </div>
+                        <div class="image-box border rounded p-1" style="width: 90px; height: 90px; cursor: pointer;" onclick="changeImage('D:/watch3.jpg')">
+                            <img src="D:/watch3.jpg">
+                        </div>
+                        <div class="image-box border rounded p-1" style="width: 90px; height: 90px; cursor: pointer;" onclick="changeImage('D:/watch4.jpg')">
+                            <img src="D:/watch4.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h1>Product Name and Information</h1>
+                <p class="text-success">Availability (In Stock)</p>
+                <h2 class="text-success">$344.9</h2>
+                <table class="table">
+                    <tr><td>Quantity</td><td><input type="number" id="first" class="form-control"></td></tr>
+                    <tr><td>Sub Total</td><td><input type="number" id="second" class="form-control" readonly></td></tr>
+                    <tr><td>Sales Tax 5.7%</td><td><input type="number" id="third" class="form-control" readonly></td></tr>
+                    <tr><td>Total</td><td><input type="number" id="fourth" class="form-control" readonly></td></tr>
+                </table>
+                <h4>Specifications</h4>
+                <p>Fire-Boltt India's No 1 Smartwatch Brand Talk 2 Bluetooth Calling Smartwatch with Dual Button...</p>
+                <button class="btn btn-success" onclick="checkout()">Check Out</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function changeImage(src) {
+            document.getElementById("mainImage").src = src;
+        }
+        function cart() {
+            let a = document.getElementById("first").value;
+            let b = a * 344.9;
+            document.getElementById("second").value = b;
+            let c = (b * 5.7) / 100;
+            document.getElementById("third").value = c;
+            document.getElementById("fourth").value = b + c;
+        }
+        document.getElementById("first").addEventListener("keyup", cart);
+
+        function checkout(){
+            window.open("addresspage.html");
+           }
+    </script>
+</body>
+</html>
